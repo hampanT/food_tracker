@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-Lw8Y8uWj6HA5J/iqBzYtO0ST0Z3auRg+6vFJfIBJ24ZhWlsqS+8zceVzJKJLlPKJ" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/737cfbbb95.js" crossorigin="anonymous"></script>
+<title>Food Tracker_TM</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Food Tracker_TM</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Expiration</th>
+            <th>Inköpt</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.datepicker.strftime('%d/%m/%Y') if task.datepicker else ''  }}</td>
+                <td>{{ task.purchase_date.strftime('%d/%m/%Y') }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content" placeholder=" placeholder ">
+            <input type="text" id="datepicker" name="datepicker">
+            <button type="submit">
+                <i class="fas fa-plus"></i> Add Task
+            </button>
+        </form>
+    </div>
+</div>
+{% if error_message is not none %}
+    <p style="color: red; text-align: center;">{{ error_message }}</p>
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
+
+
+{% endblock %}

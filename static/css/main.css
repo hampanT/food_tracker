@@ -1,0 +1,67 @@
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #0C134F;
+}
+
+.content {
+    margin: 20px auto; /* Increased margin for top and bottom */
+    padding: 20px;
+    width: 800px;
+    background-color: #1D267D;
+    color: #D4ADFC;
+    border-radius: 15px;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+    color: #ffff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+    color:red;
+}
+
+input {
+    border: 1px solid #aaa;
+    border-radius: 20px; /* Adjust the radius as needed */
+    padding: 8px; /* Optional: Add padding for better appearance */
+    background-color: #1D267D;
+    color: #e8fbf9;
+}
+input:hover{
+    box-shadow: 0 0 8px 1px #e1e1e1;
+}
+
+button{
+    background-color: #1DBE7F;
+    color: #e8fbf9;
+    border: 1px solid #aaa;
+    padding: 15px; /* Optional: Add padding for better appearance */
+    border-radius: 20px;
+    
+}
+button:hover{
+    background-color: #2fdf9a;
+}
+#content {
+    width: 70%;
+}
+a{
+    color: #ffff;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Food Tracker_TM</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Uppdatera objekt</h1>
+
+
+    <div class="form">
+        <form action="/update/{{task.id}}" method="POST">
+            <input type="text" name="content" id="content" value="{{task.content}}">
+            <input type="submit" value="Uppdatera värde">
+        </form>
+    </div>
+</div>
+{% if error_message is not none %}
+    <p style="color: red; text-align: center;">{{ error_message }}</p>
+{% endif %}
+{% endblock %}
